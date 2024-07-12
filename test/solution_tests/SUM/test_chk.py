@@ -6,4 +6,10 @@ class TestCheckout:
         assert checkout_solution.checkout("A") == 50
         assert checkout_solution.checkout("AA") == 100
         assert checkout_solution.checkout("AAA") == 130
+        assert checkout_solution.checkout("AAAA") == 180
+        assert checkout_solution.checkout("B") == 30
+        assert checkout_solution.checkout("X") == -1
+        assert checkout_solution.checkout("BX") == -1
+        assert checkout_solution.checkout("BA") == 80
+
 
