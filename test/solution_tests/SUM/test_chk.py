@@ -43,9 +43,8 @@ class TestCheckout:
             )
             == 1880
         )
-        """
-    {"method":"checkout","params":["L"],"id":"CHK_R4_014"}, expected: 90, got: 80
-     - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 955
-     - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 1860
-        """
+
+    def test_checkout_r5(self):
+        assert checkout_solution.checkout("L") == 90
+
 
