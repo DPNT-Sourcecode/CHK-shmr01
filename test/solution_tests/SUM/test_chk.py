@@ -31,7 +31,11 @@ class TestCheckout:
         assert checkout_solution.checkout("F") == 10
         assert checkout_solution.checkout("FF") == 20
         assert checkout_solution.checkout("FFF") == 20
+        assert checkout_solution.checkout("FFFF") == 30
 
 
-
-
+"""
+ - {"method":"checkout","params":["FFFF"],"id":"CHK_R3_041"}, expected: 30, got: 20
+ - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_042"}, expected: 40, got: 30
+ - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_043"}, expected: 40, got: 30
+"""

@@ -29,8 +29,8 @@ def create_F_pricing():
     def price(amount, _basket):
         if amount >= 3:
             reductions = amount // 2
-            for _ in range(reductions):
-                amount -= 1
+            print(amount, reductions)
+            amount -= reductions
 
         return amount * 10
 
@@ -71,6 +71,3 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
-
-
-
