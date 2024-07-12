@@ -12,4 +12,10 @@ class TestCheckout:
         assert checkout_solution.checkout("BX") == -1
         assert checkout_solution.checkout("BA") == 80
 
+    def test_checkout_r2(self):
+        assert checkout_solution.checkout("E") == 40
+        assert checkout_solution.checkout("EE") == 80
+        assert checkout_solution.checkout("EEB") == 80
+
+
 
