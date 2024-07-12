@@ -67,7 +67,36 @@ prices = {
 }
 
 # TODO add all E pricings here
-prices_check_order = ["A", "E", "B", "C", "D", "F"]
+prices_check_order = [
+    "A",
+    "E",
+    "B",
+    "C",
+    "D",
+    "F",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "N",
+    "M",
+    "O",
+    "P",
+    "R",
+    "Q",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+]
 
 
 # noinspection PyUnusedLocal
@@ -92,6 +121,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
