@@ -24,6 +24,7 @@ class TestCheckout:
         # assert checkout_solution.checkout("AAAAAA") == 250
         # assert checkout_solution.checkout("AAAAAAA") == 300
         assert checkout_solution.checkout("AAAAAAAAAA") == 400
+        assert checkout_solution.checkout("BBBB") == 90
 
         """
 Some requests have failed (3/40). Here are some of them:
@@ -31,4 +32,5 @@ Some requests have failed (3/40). Here are some of them:
  - {"method":"checkout","params":["BBBB"],"id":"CHK_R2_037"}, expected: 90, got: 150
  - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 725
         """
+
 
