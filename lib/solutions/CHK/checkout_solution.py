@@ -38,9 +38,20 @@ def create_F_pricing(group_size, single_price):
 
 
 def create_group_pricing(single_price):
-    group_members = {"Z", "Y", "S", "T", "X"}
+    group_members = ["Z", "Y", "S", "T", "X"]
 
     def price(amount, basket):
+        group_counter = 0
+        group_amounts = {k: v for k, v in basket if k in group_members}
+        for member in group_members:
+            group_counter += basket[member]
+        member_idx = 0
+        while group_counter >= 3:
+            member = group_members[member_idx]
+            basket[]
+            group_counter -= 1
+
+
 
         if amount >= group_size:
             reductions = amount // group_size
@@ -133,7 +144,3 @@ def checkout(skus):
         result += price_func(amount, basket)
         print("checking:", sku, basket, result)
     return result
-
-
-
-
