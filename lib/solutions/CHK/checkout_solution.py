@@ -51,7 +51,3 @@ def checkout(skus):
         price_func = prices[sku]
         result += price_func(amount, basket)
     return result
-
-
-
-

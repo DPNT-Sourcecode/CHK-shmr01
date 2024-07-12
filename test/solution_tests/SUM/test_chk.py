@@ -18,7 +18,5 @@ class TestCheckout:
         assert checkout_solution.checkout("EEB") == 80
         assert checkout_solution.checkout("BEE") == 80
         assert checkout_solution.checkout("EEBB") == 110
-
-
-
-
+        assert checkout_solution.checkout("EEEBB") == 150
+        assert checkout_solution.checkout("AEB") == 120
