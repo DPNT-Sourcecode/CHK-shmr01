@@ -2,6 +2,7 @@ def create_special_pricing(multi_prices, multi_quantities):
     def price(amount, _basket):
         result = 0
         for multi_price, quantity in zip(multi_prices, multi_quantities):
+            print("calculating price", multi_price, quantity, amount)
             result += (amount // quantity) * multi_price
             amount -= amount % quantity
         return result
@@ -56,6 +57,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         print("checking:", sku, basket, result)
     return result
+
 
 
 
