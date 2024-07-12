@@ -16,9 +16,9 @@ def create_normal_pricing(single_price):
     return lambda amount, _basket: amount * single_price
 
 
-def create_E_pricing(other_sku, single_price):
+def create_E_pricing(other_sku, amount_for_offer, single_price):
     def price(amount, basket):
-        reductions = amount // 2
+        reductions = amount // amount_for_offer
         basket[other_sku] -= reductions
         return amount * single_price
 
@@ -42,7 +42,7 @@ prices = {
     "B": create_special_pricing([45, 30], [2, 1]),
     "C": create_normal_pricing(20),
     "D": create_normal_pricing(15),
-    "E": create_E_pricing(),
+    "E": create_E_pricing("B", 2, 40),
     "F": create_F_pricing(),
     "G": create_normal_pricing(20),
     "H": create_special_pricing([80, 45, 10], [10, 5, 1]),
@@ -51,7 +51,10 @@ prices = {
     "K": create_special_pricing([150, 80], [2, 1]),
     "L": create_normal_pricing(80),
     "M": create_normal_pricing(15),
-    "N": c,
+    "N": create_E_pricing("M", 3, 40),
+    "O": create_normal_pricing(10),
+    "P": create_special_pricing([200, 50], [5, 1]),
+    "P": create_special_pricing([80, 30], [3, 1]),
 }
 
 prices_check_order = ["E", "A", "B", "C", "D", "F"]
@@ -79,6 +82,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
