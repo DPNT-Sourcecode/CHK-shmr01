@@ -27,12 +27,11 @@ class TestCheckout:
         assert checkout_solution.checkout("BBBB") == 90
         assert checkout_solution.checkout("ABCDECBAABCABBAAAEEAA") == 665
 
-        """
-Some requests have failed (3/40). Here are some of them:
- - {"method":"checkout","params":["AAAAAAAAAA"],"id":"CHK_R2_022"}, expected: 400, got: 630
- - {"method":"checkout","params":["BBBB"],"id":"CHK_R2_037"}, expected: 90, got: 150
- - {"method":"checkout","params":["ABCDECBAABCABBAAAEEAA"],"id":"CHK_R2_001"}, expected: 665, got: 725
-        """
+    def test_checkout_r3(self):
+        assert checkout_solution.checkout("F") == 10
+        assert checkout_solution.checkout("FF") == 20
+        assert checkout_solution.checkout("FFF") == 20
+
 
 
 
