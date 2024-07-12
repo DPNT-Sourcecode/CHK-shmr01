@@ -8,8 +8,8 @@ class TestCheckout:
         assert checkout_solution.checkout("AAA") == 130
         assert checkout_solution.checkout("AAAA") == 180
         assert checkout_solution.checkout("B") == 30
-        assert checkout_solution.checkout("X") == -1
-        assert checkout_solution.checkout("BX") == -1
+        assert checkout_solution.checkout("x") == -1
+        assert checkout_solution.checkout("Bx") == -1
         assert checkout_solution.checkout("BA") == 80
 
     def test_checkout_r2(self):
@@ -40,4 +40,5 @@ class TestCheckout:
  - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_042"}, expected: 40, got: 30
  - {"method":"checkout","params":["FFFFFF"],"id":"CHK_R3_043"}, expected: 40, got: 30
 """
+
 

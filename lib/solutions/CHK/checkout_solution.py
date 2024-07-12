@@ -59,10 +59,15 @@ prices = {
     "S": create_normal_pricing(30),
     "T": create_normal_pricing(20),
     "U": create_F_pricing(4, 40),
+    "V": create_special_pricing([130, 90, 50], [3, 2, 1]),
+    "W": create_normal_pricing(20),
+    "X": create_normal_pricing(90),
+    "Y": create_normal_pricing(10),
+    "Z": create_normal_pricing(50),
 }
 
 # TODO add all E pricings here
-prices_check_order = ["E", "A", "B", "C", "D", "F"]
+prices_check_order = ["A", "E", "B", "C", "D", "F"]
 
 
 # noinspection PyUnusedLocal
@@ -87,6 +92,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
