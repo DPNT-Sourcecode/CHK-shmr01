@@ -25,14 +25,14 @@ def create_E_pricing(other_sku, amount_for_offer, single_price):
     return price
 
 
-def create_F_pricing():
+def create_F_pricing(group_size, single_price):
     def price(amount, _basket):
-        if amount >= 3:
-            reductions = amount // 3
+        if amount >= group_size:
+            reductions = amount // group_size
             print(amount, reductions)
             amount -= reductions
 
-        return amount * 10
+        return amount * single_price
 
     return price
 
@@ -43,7 +43,7 @@ prices = {
     "C": create_normal_pricing(20),
     "D": create_normal_pricing(15),
     "E": create_E_pricing("B", 2, 40),
-    "F": create_F_pricing(),
+    "F": create_F_pricing(3, 10),
     "G": create_normal_pricing(20),
     "H": create_special_pricing([80, 45, 10], [10, 5, 1]),
     "I": create_normal_pricing(35),
@@ -54,9 +54,14 @@ prices = {
     "N": create_E_pricing("M", 3, 40),
     "O": create_normal_pricing(10),
     "P": create_special_pricing([200, 50], [5, 1]),
-    "P": create_special_pricing([80, 30], [3, 1]),
+    "Q": create_special_pricing([80, 30], [3, 1]),
+    "R": create_E_pricing("Q", 3, 50),
+    "S": create_normal_pricing(30),
+    "T": create_normal_pricing(20),
+    "U": create_F_pricing(4, 40),
 }
 
+# TODO add all E pricings here
 prices_check_order = ["E", "A", "B", "C", "D", "F"]
 
 
@@ -82,6 +87,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
