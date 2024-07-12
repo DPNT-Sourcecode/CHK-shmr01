@@ -66,15 +66,12 @@ prices = {
     "Z": create_normal_pricing(50),
 }
 
-# TODO add all E pricings here
 prices_check_order = [
     "A",
     "E",
     "B",
     "C",
     "D",
-    "F",
-    "E",
     "F",
     "G",
     "H",
@@ -119,12 +116,5 @@ def checkout(skus):
             continue
         price_func = prices[sku]
         result += price_func(amount, basket)
-        # print("checking:", sku, basket, result)
+        print("checking:", sku, basket, result)
     return result
-
-
-
-
-
-
-
