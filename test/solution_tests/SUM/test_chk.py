@@ -23,6 +23,11 @@ class TestCheckout:
         assert checkout_solution.checkout("AAAAA") == 200
         assert checkout_solution.checkout("AAAAAA") == 250
         assert checkout_solution.checkout("AAAAAAA") == 300
+        assert checkout_solution.checkout("AAAAAAAAAA") == 400
+
+
+AAAAAAAAAA
+
 
 
 
