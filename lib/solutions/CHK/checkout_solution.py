@@ -45,6 +45,8 @@ def checkout(skus):
         basket[sku] += 1
 
     result = 0
+
+    print(basket)
     # remember to calculate E first
     for sku in prices_check_order:
         amount = basket[sku]
@@ -52,6 +54,8 @@ def checkout(skus):
             continue
         price_func = prices[sku]
         result += price_func(amount, basket)
+        print("checking:", sku, basket, result)
     return result
+
 
 
