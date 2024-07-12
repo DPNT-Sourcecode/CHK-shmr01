@@ -36,15 +36,16 @@ class TestCheckout:
 
     def test_checkout_r4(self):
         assert checkout_solution.checkout("L") == 90
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 955
         assert (
             checkout_solution.checkout(
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
             )
-            == 1880
+            == 1850
         )
 
     def test_checkout_r5(self):
-        assert checkout_solution.checkout("L") == 90
+        assert checkout_solution.checkout("STX") == 90
+
 
 

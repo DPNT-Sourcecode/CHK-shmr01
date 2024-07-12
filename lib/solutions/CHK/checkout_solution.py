@@ -48,7 +48,7 @@ prices = {
     "H": create_special_pricing([80, 45, 10], [10, 5, 1]),
     "I": create_normal_pricing(35),
     "J": create_normal_pricing(60),
-    "K": create_special_pricing([150, 80], [2, 1]),
+    "K": create_special_pricing([120, 70], [2, 1]),
     "L": create_normal_pricing(90),
     "M": create_normal_pricing(15),
     "N": create_E_pricing("M", 3, 40),
@@ -118,4 +118,5 @@ def checkout(skus):
         result += price_func(amount, basket)
         print("checking:", sku, basket, result)
     return result
+
 
