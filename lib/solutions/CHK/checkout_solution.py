@@ -23,6 +23,16 @@ prices = {
 # skus = unicode string
 def checkout(skus):
     # need to deploy to check how the string is encoded :/
-    raise NotImplemented
+    basket = {sku: 0 for sku in prices.keys()}
+    last_amount = 0
+    for sku in skus:
+        # if it's a single
+        if last_amount == 0:
+            if sku not in prices:
+                return -1
 
-
+            basket[sku] += last_amount
+            last_amount = 0
+        else:
+            assert int(sku) > 0
+            last_amount = int(sku)
