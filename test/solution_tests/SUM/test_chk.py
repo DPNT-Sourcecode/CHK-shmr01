@@ -14,13 +14,16 @@ class TestCheckout:
 
     def test_checkout_r2(self):
         assert checkout_solution.checkout("E") == 40
-        # assert checkout_solution.checkout("EE") == 80
-        # assert checkout_solution.checkout("EEB") == 80
-        # assert checkout_solution.checkout("BEE") == 80
-        # assert checkout_solution.checkout("EEBB") == 110
-        # assert checkout_solution.checkout("EEEBB") == 150
-        # assert checkout_solution.checkout("AEB") == 120
-        # assert checkout_solution.checkout("AAAAA") == 200
+        assert checkout_solution.checkout("EE") == 80
+        assert checkout_solution.checkout("EEB") == 80
+        assert checkout_solution.checkout("BEE") == 80
+        assert checkout_solution.checkout("EEBB") == 110
+        assert checkout_solution.checkout("EEEBB") == 150
+        assert checkout_solution.checkout("AEB") == 120
+        assert checkout_solution.checkout("AAAAA") == 200
+        assert checkout_solution.checkout("AAAAAA") == 250
+        assert checkout_solution.checkout("AAAAAAA") == 300
+
 
 
 
