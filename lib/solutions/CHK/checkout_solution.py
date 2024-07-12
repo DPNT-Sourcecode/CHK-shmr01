@@ -42,7 +42,7 @@ def create_group_pricing(single_price):
 
     def price(amount, basket):
         group_counter = 0
-        group_amounts = {k: v for k, v in basket if k in group_members}
+        group_amounts = {k: v for k, v in basket.items() if k in group_members}
         for member in group_members:
             group_counter += basket[member]
         member_idx = 0
@@ -56,14 +56,7 @@ def create_group_pricing(single_price):
                 group_counter -= 1
                 continue
             member_idx += 1
-        return 21 * basket["Z"]
-
-        if amount >= group_size:
-            reductions = amount // group_size
-            print(amount, reductions)
-            amount -= reductions
-
-        return amount * single_price
+        return single_price * basket["Z"]
 
     return price
 
@@ -87,14 +80,14 @@ prices = {
     "P": create_special_pricing([200, 50], [5, 1]),
     "Q": create_special_pricing([80, 30], [3, 1]),
     "R": create_E_pricing("Q", 3, 50),
-    "S": create_normal_pricing(30),
+    "S": create_normal_pricing(20),
     "T": create_normal_pricing(20),
     "U": create_F_pricing(4, 40),
     "V": create_special_pricing([130, 90, 50], [3, 2, 1]),
     "W": create_normal_pricing(20),
-    "X": create_normal_pricing(90),
-    "Y": create_normal_pricing(10),
-    "Z": create_normal_pricing(50),
+    "X": create_normal_pricing(17),
+    "Y": create_normal_pricing(20),
+    "Z": create_group_pricing(21),
 }
 
 prices_check_order = [
@@ -149,4 +142,5 @@ def checkout(skus):
         result += price_func(amount, basket)
         print("checking:", sku, basket, result)
     return result
+
 
