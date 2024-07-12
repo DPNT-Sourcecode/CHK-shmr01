@@ -27,9 +27,3 @@ class TestCheckout:
 
 
 AAAAAAAAAA
-
-
-
-
-
-
