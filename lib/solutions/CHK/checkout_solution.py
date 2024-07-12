@@ -10,21 +10,26 @@ def create_special_pricing(single_price, multi_price, multi_quantity):
 def create_normal_pricing(single_price):
     return lambda amount, _basket: amount * single_price
 
+
 def create_E_pricing():
     def price(amount, basket):
-        return (amount // ) * multi_price + (
-            amount % multi_quantity
-        ) * single_price
+        reductions = amount // 2
+        for _ in range(reductions):
+            basket["B"] -= 1
+        return amount * 40
 
     return price
+
 
 prices = {
     "A": create_special_pricing(50, 130, 3),
     "B": create_special_pricing(30, 45, 2),
     "C": create_normal_pricing(20),
     "D": create_normal_pricing(15),
-    "E": create_E_pricing()
+    "E": create_E_pricing(),
 }
+
+prices_check_order = ["E", "A", "B", "C", "D"]
 
 
 # noinspection PyUnusedLocal
@@ -38,10 +43,15 @@ def checkout(skus):
         basket[sku] += 1
 
     result = 0
-    for sku, amount in basket.items():
+    # remember to calculate E first
+    for sku in prices_check_order:
+        amount = basket[sku]
+        if amount <= 0:
+            continue
         price_func = prices[sku]
-        result += price_func(amount)
+        result += price_func(amount, basket)
     return result
+
 
 
 
