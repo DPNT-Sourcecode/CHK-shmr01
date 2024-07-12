@@ -58,6 +58,8 @@ def create_group_pricing(calling_member, single_price):
                 reductions -= 1
                 continue
             member_idx += 1
+
+        print("postloop", single_price, group_price)
         return (single_price * basket[calling_member]) + group_price
 
     return price
@@ -111,7 +113,6 @@ prices_check_order = [
     "P",
     "R",
     "Q",
-    "Z",
     "S",
     "T",
     "U",
@@ -119,6 +120,7 @@ prices_check_order = [
     "W",
     "Y",
     "X",
+    "Z",
 ]
 
 
@@ -141,9 +143,12 @@ def checkout(skus):
         if amount <= 0:
             continue
         price_func = prices[sku]
-        result += price_func(amount, basket)
+        price = price_func(amount, basket)
+        print("adding", price, "for", sku)
+        result += price
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
