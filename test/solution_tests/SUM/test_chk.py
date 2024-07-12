@@ -33,3 +33,19 @@ class TestCheckout:
         assert checkout_solution.checkout("FFF") == 20
         assert checkout_solution.checkout("FFFF") == 30
         assert checkout_solution.checkout("FFFFFF") == 40
+
+    def test_checkout_r4(self):
+        assert checkout_solution.checkout("L") == 90
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
+        assert (
+            checkout_solution.checkout(
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            )
+            == 1880
+        )
+        """
+    {"method":"checkout","params":["L"],"id":"CHK_R4_014"}, expected: 90, got: 80
+     - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_033"}, expected: 965, got: 955
+     - {"method":"checkout","params":["ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"],"id":"CHK_R4_139"}, expected: 1880, got: 1860
+        """
+
