@@ -1,6 +1,6 @@
 def create_special_pricing(single_price, multi_price, multi_quantity):
     def price(amount):
-        return (amount / multi_quantity) * multi_price + (
+        return (amount // multi_quantity) * multi_price + (
             amount % multi_quantity
         ) * single_price
 
@@ -28,4 +28,11 @@ def checkout(skus):
         if sku not in prices:
             return -1
         basket[sku] += 1
+
+    result = 0
+    for sku, amount in basket.items():
+        price_func = prices[sku]
+        result += price_func(amount)
+    return result
+
 
