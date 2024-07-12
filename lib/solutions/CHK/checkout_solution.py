@@ -3,17 +3,26 @@ def create_special_pricing(single_price, multi_price, multi_quantity):
         return (amount / multi_quantity) * multi_price + (
             amount % multi_quantity
         ) * single_price
+
     return price
 
-def create_normal_pricing(single_price):
-    return lambda x: x*single_price
 
-prices = {"A": create_special_pricing(50, 130, 3), "B" : create_special_pricing(30, 45, 2),
-          "C"}
+def create_normal_pricing(single_price):
+    return lambda x: x * single_price
+
+
+prices = {
+    "A": create_special_pricing(50, 130, 3),
+    "B": create_special_pricing(30, 45, 2),
+    "C": create_normal_pricing(20),
+    "D": create_normal_pricing(15),
+}
 
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    raise NotImplementedError()
+    # need to deploy to check how the string is encoded :/
+    raise NotImplemented
+
 
