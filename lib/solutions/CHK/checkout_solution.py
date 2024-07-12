@@ -47,14 +47,15 @@ def create_group_pricing(calling_member, single_price):
         member_idx = 0
         group_price = 45 * group_counter // 3
 
-        print("preloop", basket)
+        reductions = (group_counter // 3) * 3
+        print("preloop", basket, group_counter)
         # update basket
-        while group_counter >= 3 and member_idx > len(group_members):
+        while reductions >= 0 and member_idx < len(group_members):
             print(basket)
             member = group_members[member_idx]
             if basket[member] > 0:
                 basket[member] -= 1
-                group_counter -= 1
+                reductions -= 1
                 continue
             member_idx += 1
         return (single_price * basket[calling_member]) + group_price
@@ -143,6 +144,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
