@@ -28,7 +28,7 @@ def create_E_pricing():
 def create_F_pricing():
     def price(amount, _basket):
         if amount >= 3:
-            reductions = amount // 2
+            reductions = amount // 3
             print(amount, reductions)
             amount -= reductions
 
@@ -61,7 +61,7 @@ def checkout(skus):
 
     result = 0
 
-    print(basket)
+    # print(basket)
     # remember to calculate E first
     for sku in prices_check_order:
         amount = basket[sku]
@@ -71,3 +71,4 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
