@@ -37,10 +37,10 @@ def create_F_pricing(group_size, single_price):
     return price
 
 
-def create_group_pricing(single_price):
+def create_group_pricing(member, single_price):
     group_members = ["Z", "Y", "S", "T", "X"]
 
-    def price(_amount, basket):
+    def price(amount, basket):
         group_counter = 0
         for member in group_members:
             group_counter += basket[member]
@@ -56,7 +56,8 @@ def create_group_pricing(single_price):
                 group_counter -= 1
                 continue
             member_idx += 1
-        return (single_price * basket["Z"]) + group_price
+        assert member in basket
+        return (single_price * basket[member]) + group_price
 
     return price
 
@@ -87,7 +88,7 @@ prices = {
     "W": create_normal_pricing(20),
     "X": create_normal_pricing(17),
     "Y": create_normal_pricing(20),
-    "Z": create_group_pricing(21),
+    "Z": create_group_pricing("Z", 21),
 }
 
 prices_check_order = [
@@ -142,6 +143,7 @@ def checkout(skus):
         result += price_func(amount, basket)
         # print("checking:", sku, basket, result)
     return result
+
 
 
 
